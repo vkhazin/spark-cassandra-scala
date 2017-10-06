@@ -6,10 +6,10 @@ import org.apache.spark.SparkConf
 object Main extends App {
   println("Hello, World!")
   
-// 		val host = "13.59.53.178"
+// 		val host = "172.31.36.205"
 // 		val conf = new SparkConf(true).set("spark.cassandra.connection.host", host)
 // 		val sc = new SparkContext(conf)    
-//     val digitalAsset = sc.cassandraTable("perfda", "digitalasset_3_0_2")
+//     val digitalAsset = sc.cassandraTable("perf8da", "digitalasset_3_0_2")
 //     println(digitalAsset.first)
 }
 
