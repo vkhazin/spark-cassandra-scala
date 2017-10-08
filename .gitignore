@@ -12,3 +12,5 @@ project/plugins/project/
 .lib/
 *.log
 metastore_db/
+setup/spark-cassandra-connector/
+setup/spark-cassandra-connector
