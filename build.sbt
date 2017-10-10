@@ -1,6 +1,6 @@
 scalaVersion := "2.11.11"
 
-name := "SparkCassandra"
+name := "CopyData"
 organization := "smith.co"
 version := "1.0"
 
