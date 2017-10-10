@@ -11,7 +11,7 @@ object Main extends App {
     val keyspace = "perf8da"
     val srcTable = "digitalasset_3_0_2"
 		val trgTable = "digitalassets"
-  	val limit = 10000000
+  	val limit = 100
 	
 		val startTimeMillis = System.currentTimeMillis()
 	
