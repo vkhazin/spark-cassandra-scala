@@ -10,7 +10,7 @@ object CopyData extends App {
 
 	println(s"Starting data copy at: ${Calendar.getInstance().getTime()}")
 
-	val appConfig = com.typesafe.config.ConfigFactory.load();
+	val appConfig =  com.typesafe.config.ConfigFactory.parseFile(new java.io.File("/etc/co.smith.CopyData/application.conf"))
 	val cassandraHost = appConfig.getString("cassandraHost")
 	val sourceKeyspace = appConfig.getString("sourceKeyspace")
 	val sourceTable = appConfig.getString("sourceTable")

@@ -15,6 +15,12 @@ chmod +x *.sh
 * Review code in ./src/main/scala/Main.scala - as it is all hard-coded at the moment
 
 # Pacakge Code and Submit Job to Spark
+* Review and copy config file:
+```
+sudo mkdir /etc/co.smith.CopyData
+sudo cp ./src/main/resources/application.conf /etc/co.smith.CopyData/
+```
+* Assembly and run the jar with spark-submit:
 ```
 chmod +x ./submit.sh
 ./submit.sh
