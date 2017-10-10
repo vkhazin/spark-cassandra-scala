@@ -1,6 +1,9 @@
-# Set Spark version 2.2.0
+# Set Spark version 2.0.0
 # https://coderwall.com/p/o9bkjg/setup-spark-with-cassandra-connector
-sparkversion=spark-2.0.0-bin-hadoop2.7
+# sparkversion=spark-2.0.0-bin-hadoop2.7
+
+# Set Spark version 2.2.0
+sparkversion=spark-2.2.0-bin-hadoop2.7
 
 # Set Spark version 1.4.1
 # sparkversion=spark-2.2.0-bin-hadoop2.7
