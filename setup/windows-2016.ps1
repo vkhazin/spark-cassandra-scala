@@ -31,7 +31,7 @@ Set-ItemProperty -Path ‘Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\
 
 
 
-# testing...
+# Resolving issue: https://issues.apache.org/jira/browse/SPARK-2356
 # $path=(Convert-Path .)
 # $sparkFolder="C:\spark\"
 # set SPARK_HOME=$sparkFolder
