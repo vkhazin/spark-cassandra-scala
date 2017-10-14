@@ -16,17 +16,16 @@ chmod +x *.sh
 * Connect to the instance using RDP
 * Clone the git repository
 * Install dependencies by opening PowerShell as *Administrator*
-
+```
 Set-ExecutionPolicy Bypass; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 cd ./setup
 ./windows-2016.ps1
-
-
-
+```
+* You have to logout and to log back in otherwise system environment variables are not applied properly
 
 # Adjustments
-
-* Review code in ./src/main/scala/Main.scala - as it is all hard-coded at the moment
+* Review code in ./src/main/scala/Main.scala
+* Review settings in ./src/main/resources/application.conf
 
 # Pacakge Code and Submit Job to Spark
 * Review and copy config file:
@@ -39,4 +38,4 @@ sudo cp ./src/main/resources/application.conf /etc/co.smith.CopyData/
 chmod +x ./submit.sh
 ./submit.sh
 ```
-*Please Note:* sbt corrupts the echo in terminal, use ```reset``` to get the echo back
+*Please Note:* sbt corrupts the echo in linux terminal, use ```reset``` to get the echo back

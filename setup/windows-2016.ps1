@@ -15,20 +15,26 @@ mkdir $sparkFolder
  mv .\spark-2.2.0-bin-hadoop2.7\* $sparkFolder
 rm .\$sparkVersion.tar
 rm .\$sparkVersion.tgz
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name SPARK_HOME -Value $sparkFolder
 
 # Winutils
 $uri="https://github.com/steveloughran/winutils/raw/master/hadoop-2.7.1/bin/winutils.exe"
 $filename=$path + "\"+ "winutils.exe"
 (New-Object System.Net.WebClient).DownloadFile($uri, $filename)
 mv ./winutils.exe "$sparkFolder/bin"
-Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name HADOOP_HOME -Value $sparkFolder
 $sparkFolder\bin\winutils.exe chmod 777 \tmp\hive
 
-# Set path
+# Set system variables
+## Path
 $oldpath = (Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH).path
 $newpath = "$oldpath;$sparkFolder\bin"
 Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH -Value $newPath
+
+## SPARK_HOME
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name SPARK_HOME -Value $sparkFolder
+
+## HADOOP_HOME
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name HADOOP_HOME -Value $sparkFolder
+
 
 # Print out a message
 Write-Host "Log off and log back in to re-initialize path, SPARK_HOME, and HADOOP_HOME variables!" -foreground "red"
