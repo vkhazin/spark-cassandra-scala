@@ -34,8 +34,15 @@ sudo mkdir /etc/co.smith.CopyData
 sudo cp ./src/main/resources/application.conf /etc/co.smith.CopyData/
 ```
 * Assembly and run the jar with spark-submit:
+
+** Ubuntu
 ```
 chmod +x ./submit.sh
 ./submit.sh
 ```
 *Please Note:* sbt corrupts the echo in linux terminal, use ```reset``` to get the echo back
+
+** Windows
+```
+./submit.ps1
+```
