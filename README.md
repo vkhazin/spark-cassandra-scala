@@ -27,7 +27,7 @@ cd ./setup
 * Review code in ./src/main/scala/Main.scala
 * Review settings in ./src/main/resources/application.conf
 
-# Pacakge Code and Submit Job to Spark
+# Package Code and Submit Job to Spark
 * Review and copy config file:
 ```
 sudo mkdir /etc/co.smith.CopyData
