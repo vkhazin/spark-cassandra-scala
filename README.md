@@ -1,6 +1,6 @@
 # Environment Setup:
 
-## Ubuntu
+## Ubuntu 16.04
 * Launch new ec2 instance: Ubuntu Server 16.04 LTS (HVM), SSD Volume Type - ami-10547475
 * Connect to the instance using ssh
 * Clone git repository: ```git clone https://github.com/vkhazin/spark-cassandra-scala.git```
@@ -35,14 +35,14 @@ sudo cp ./src/main/resources/application.conf /etc/co.smith.CopyData/
 ```
 * Assembly and run the jar with spark-submit:
 
-## Ubuntu
+## Ubuntu 16.04
 ```
 chmod +x ./submit.sh
 ./submit.sh
 ```
 *Please Note:* sbt corrupts the echo in linux terminal, use ```reset``` to get the echo back
 
-## Windows
+## Windows Server 2016
 ```
 ./submit.ps1
 ```
