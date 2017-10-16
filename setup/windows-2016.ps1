@@ -21,7 +21,7 @@ $uri="https://github.com/steveloughran/winutils/raw/master/hadoop-2.7.1/bin/winu
 $filename=$path + "\"+ "winutils.exe"
 (New-Object System.Net.WebClient).DownloadFile($uri, $filename)
 mv ./winutils.exe "$sparkFolder/bin"
-$sparkFolder\bin\winutils.exe chmod 777 \tmp\hive
+chmod 777 \tmp\hive
 
 # Set system variables
 ## Path
