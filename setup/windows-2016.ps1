@@ -9,10 +9,10 @@ $uri="https://d3kbcqa49mib13.cloudfront.net/$sparkVersion.tgz"
 $path=(Convert-Path .)
 $filename=$path + "\"+ $sparkVersion + ".tgz"
 (New-Object System.Net.WebClient).DownloadFile($uri, $filename)
- 7z x .\$sparkVersion.tgz
- 7z x .\$sparkVersion.tar
+7z x .\$sparkVersion.tgz
+7z x .\$sparkVersion.tar
 mkdir $sparkFolder
- mv .\spark-2.2.0-bin-hadoop2.7\* $sparkFolder
+mv .\spark-2.2.0-bin-hadoop2.7\* $sparkFolder
 rm .\$sparkVersion.tar
 rm .\$sparkVersion.tgz
 
