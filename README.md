@@ -19,6 +19,7 @@ chmod +x *.sh
 ```
 Set-ExecutionPolicy Bypass; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 choco install git -y
+refreshenv
 git clone https://github.com/vkhazin/spark-cassandra-scala.git
 cd ./spark-cassandra-scala/setup
 ./windows-2016.ps1
