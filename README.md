@@ -31,13 +31,6 @@ cd ./spark-cassandra-scala/setup
 * Review settings in ./src/main/resources/application.conf
 
 # Package Code and Submit Job to Spark
-* Review and copy config file:
-```
-sudo mkdir /etc/co.smith.CopyData
-sudo cp ./src/main/resources/application.conf /etc/co.smith.CopyData/
-```
-* Assembly and run the jar with spark-submit:
-
 ## Ubuntu 16.04
 ```
 chmod +x ./submit.sh
