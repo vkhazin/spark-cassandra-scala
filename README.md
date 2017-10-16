@@ -18,7 +18,9 @@ chmod +x *.sh
 * Install dependencies by opening PowerShell as *Administrator*
 ```
 Set-ExecutionPolicy Bypass; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-cd ./setup
+choco install git -y
+git clone https://github.com/vkhazin/spark-cassandra-scala.git
+cd ./spark-cassandra-scala/setup
 ./windows-2016.ps1
 ```
 * You have to logout and to log back in otherwise system environment variables are not applied properly
