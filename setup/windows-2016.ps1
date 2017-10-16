@@ -40,3 +40,4 @@ Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Co
 
 # Print out a message
 Write-Host "Log off and log back in to re-initialize path, SPARK_HOME, and HADOOP_HOME variables!" -foreground "red"
+Write-Host "For RDP connection, do not disconnect, type 'logoff' command in the powershell instead!" -foreground "red"
