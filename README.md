@@ -49,3 +49,5 @@ chmod +x ./submit.sh
 ```
 ./submit.ps1
 ```
+* Please note: an issue on Windows unable to delete temp folders: https://issues.apache.org/jira/browse/SPARK-12216
+* May require periodic cleaning of your ~/AppData/Local/Temp folder manually
