@@ -23,6 +23,9 @@ object CopyData extends App {
 	if (!(new java.io.File(fileName).exists)) throw new IllegalArgumentException(s"Configuration file: '$fileName' was not found");
 
 	val appConfig =  com.typesafe.config.ConfigFactory.parseFile(new java.io.File(fileName))
+	
+	val sparkMasterUrl = appConfig.getString("sparkMasterUrl")
+	val cassandraDC = appConfig.getString("cassandraDC")
 	val cassandraHost = appConfig.getString("cassandraHost")
 	val sourceKeyspace = appConfig.getString("sourceKeyspace")
 	val sourceTable = appConfig.getString("sourceTable")
@@ -33,8 +36,16 @@ object CopyData extends App {
 	val startTimeMillis = System.currentTimeMillis()
 
 	val sparkConf = new SparkConf(true)
-									.set("spark.cassandra.connection.host", cassandraHost)
-									.setAppName("TransferImagesSpark2")
+	sparkConf.set("spark.cassandra.connection.host", cassandraHost)
+	sparkConf.setAppName("CopyData")
+	
+	if (!sparkMasterUrl.isEmpty) {
+		sparkConf.setMaster(sparkMasterUrl)
+	}
+	
+	if (!cassandraDC.isEmpty) {
+		sparkConf.set("spark.cassandra.connection.local_dc", cassandraDC)
+	}
 
 	val sc = new SparkContext(sparkConf)
 	sc.setLogLevel("WARN")
