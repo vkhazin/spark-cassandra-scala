@@ -8,6 +8,18 @@ import java.util.Calendar
 
 object CopyData extends App {
 
+// 	def addColumns(row: CassandraRow, cols: Map[String, Any]): CassandraRow =
+//     CassandraRow.fromMap(row.toMap ++ cols)
+	
+	def addColumns(row: CassandraRow): CassandraRow = {
+		val inputMap = row.toMap
+		val newColumns = Map(
+			"field1" -> inputMap("name")
+		)
+		var outputMap = inputMap ++ newColumns
+		CassandraRow.fromMap(outputMap)
+	}
+	
 	println(s"Starting data copy at: ${Calendar.getInstance().getTime()}")
 
 	val fileName = if (args.length > 0) args(0) else "/etc/co.smith.CopyData/application.conf"
@@ -32,8 +44,11 @@ object CopyData extends App {
 
 	val result = sc.cassandraTable(sourceKeyspace, sourceTable)
 								.limit(limit)
+								.map(addColumns(_))
 								.saveToCassandra(targetKeyspace, targetTable)	
 
+	println(result);
+	
 	val finishTimeMillis = System.currentTimeMillis()
 
 	println(s"Finished data copy, millisec taken: ${finishTimeMillis - startTimeMillis}, at ${Calendar.getInstance().getTime()}")
