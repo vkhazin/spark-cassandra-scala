@@ -8,9 +8,6 @@ import java.util.Calendar
 
 object CopyData extends App {
 
-// 	def addColumns(row: CassandraRow, cols: Map[String, Any]): CassandraRow =
-//     CassandraRow.fromMap(row.toMap ++ cols)
-	
 	def addColumns(row: CassandraRow): CassandraRow = {
 		val inputMap = row.toMap
 		val newColumns = Map(
