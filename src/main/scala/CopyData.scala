@@ -28,7 +28,7 @@ object CopyData extends App {
 	val sourceTable = appConfig.getString("sourceTable")
 	val targetKeyspace = appConfig.getString("targetKeyspace")
 	val targetTable = appConfig.getString("targetTable")
-	val limit = appConfig.getInt("limit")
+	val limit: Int = if (appConfig.getInt("limit") > 0) appConfig.getInt("limit") else 1000000000
 
 	val startTimeMillis = System.currentTimeMillis()
 
@@ -38,14 +38,12 @@ object CopyData extends App {
 
 	val sc = new SparkContext(sparkConf)
 	sc.setLogLevel("WARN")
-
+	
 	val result = sc.cassandraTable(sourceKeyspace, sourceTable)
 								.limit(limit)
 								.map(addColumns(_))
 								.saveToCassandra(targetKeyspace, targetTable)	
 
-	println(result);
-	
 	val finishTimeMillis = System.currentTimeMillis()
 
 	println(s"Finished data copy, millisec taken: ${finishTimeMillis - startTimeMillis}, at ${Calendar.getInstance().getTime()}")
